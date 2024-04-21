@@ -1,0 +1,35 @@
+<div class="mx-5 my-5">
+<div class="d-flex justify-content-between my-4 ms-5">
+    <input class="form-control mt-4" type="text" [(ngModel)]="searchTxt" (keyup)="search()"
+        style="width:20%;height:40px" placeholder="Search Employee">
+    <select class="selectClass me-5" #select (change)="agefilter(select.value)">
+        <option class="ml-2" value="" selected>Select Age Range</option>
+        <option class="ml-2" value="{{ind}}" *ngFor="let i of selectValues;let ind =index">{{i}}</option>
+    </select>
+
+</div>
+<table class="table table-striped mytable">
+    <thead>
+        <tr>
+            <th scope="col" *ngFor="let heading of header"
+                [ngClass]="heading ==='employee_salary' ? 'my-icon fa fa-chevron-up':'fontClass'"
+                (click)="sort($event)">
+                {{heading|titlecase}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngIf="sorting==true">
+            <tr *ngFor="let i of Data">
+                <td *ngFor="let k of header">{{i[k]}}
+                </td>
+            </tr>
+        </ng-container>
+        <ng-container *ngIf="sorting!=true">
+            <tr *ngFor="let i of Data | filter:searchTxt;">
+                <td *ngFor="let k of header">{{i[k]}}
+                </td>
+            </tr>
+        </ng-container>
+    </tbody>
+</table>
+</div>

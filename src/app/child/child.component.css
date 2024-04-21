@@ -1,0 +1,23 @@
+.mytable{
+    border-collapse: collapse;
+    width: 100%;
+    text-align: left;
+  }
+  .fontClass{
+    font-weight:bolder;
+  }
+  .selectClass{
+    width: 139px;
+    border-radius: 5px;
+    height: 43px;
+    font-size: 12px;
+    padding: 8px;
+}
+.my-icon{
+  font-size: 14px;
+  color: gray;
+  cursor: pointer;
+  margin-left: 10px;
+  font-weight:bolder;
+}
+  
